@@ -1,7 +1,7 @@
 # fastunit
 Async unittest of Python3. Run every testcases with corotine.
 
-## Usage：
+## Usage
 
 Download/Git clone source code, and run `./install.sh` (or `python setup.py install`) to install.
 
