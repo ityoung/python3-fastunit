@@ -1,8 +1,13 @@
 # fastunit
-Async unittest of Python3. Run every testcases with corotine.
+
+Async unittest of Python3. Run testcases with coroutine.
 
 ## Usage：
 
-Download/Git clone source code, and run `./install.sh` (or `python setup.py install`) to install.
+1. Download/Git clone source code, and run `./install.sh` (or `python setup.py install`) to install.
 
-Fastunit is just change the way of running test cases from synchronously to asynchronously, so you just change module name in your test code from `unittest` to `fastunit`, and everything can work perfectly.
+2. Replace `unittest` to `fastunit` of your code.
+
+## Known problem:
+
+`HTMLTestRunner` is not supported, for it designed for linear testcase.
