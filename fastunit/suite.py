@@ -106,7 +106,9 @@ class TestSuite(BaseTestSuite):
             result._testRunEntered = topLevel = True
         # YX
         asyncMethod = []
-        loop = asyncio.get_event_loop()
+        # loop = asyncio.get_event_loop()
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
         for index, test in enumerate(self):
             asyncMethod.append(self.startRunCase(index, test, result))
         loop.run_until_complete(asyncio.wait(asyncMethod))
@@ -118,8 +120,7 @@ class TestSuite(BaseTestSuite):
         return result
 
     # YX
-    @asyncio.coroutine
-    def startRunCase(self, index, test, result):
+    async def startRunCase(self, index, test, result):
         loop = asyncio.get_event_loop()
         if result.shouldStop:
             return False
@@ -134,7 +135,7 @@ class TestSuite(BaseTestSuite):
                     getattr(result, '_moduleSetUpFailed', False)):
                 return True
 
-        yield from loop.run_in_executor(None, test, result)
+        await loop.run_in_executor(None, test, result)
 
         if self._cleanup:
             self._removeTestAtIndex(index)
