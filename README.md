@@ -2,11 +2,11 @@
 
 Async unittest of Python3. Run testcases with coroutine.
 
-## Usage：
+## Usage
 
 1. Download/Git clone source code, and run `./install.sh` (or `python setup.py install`) to install.
 
-2. Replace `unittest` to `fastunit` of your code.
+2. Replace `unittest` with `fastunit` in your code.
 
 ## Known problem:
 
