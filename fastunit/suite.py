@@ -111,7 +111,8 @@ class TestSuite(BaseTestSuite):
         asyncio.set_event_loop(loop)
         for index, test in enumerate(self):
             asyncMethod.append(self.startRunCase(index, test, result))
-        loop.run_until_complete(asyncio.wait(asyncMethod))
+        if asyncMethod:
+            loop.run_until_complete(asyncio.wait(asyncMethod))
         loop.close()
         if topLevel:
             self._tearDownPreviousClass(None, result)
